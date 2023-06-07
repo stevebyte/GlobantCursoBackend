@@ -42,17 +42,21 @@ public class JavaIntroEj11 {
         
         
     }
-   
+    /*
+        'public' es el modificador de acceso que indica que el método es público y por tanto puede ser
+        llamado desde otras clases
+        'static' es un modificador el cual indica que la clase no necesita ser instanciada para poder
+        utilizar el método        
+    */
 public static String codificar (String palabra){
-        int longitud; //i=0;
+        int longitud; 
         char letraActual;
         String palabraCodificada = "";
-        Scanner leer = new Scanner(System.in);
         
         longitud = palabra.length();
         
         for (int i = 0; i < longitud; i++){
-        //while (i<longitud){
+            //Al usar charAt se asigna un valor 'char' a letraActual
             letraActual = palabra.charAt(i);
             
             switch(letraActual){
@@ -77,12 +81,13 @@ public static String codificar (String palabra){
                     palabraCodificada = palabraCodificada.concat("*");
                 break;
                 default:
+                    /* palabraCodificada es un String, y no es posible convertir directamente
+                    un char a String (letraActual a palabraCodificada).
+                    Para solucionarlo, se añade un String vacío "" y se concatena con un
+                    char (letraActual), lo cual resulta en un String. */
                     palabraCodificada = palabraCodificada.concat(""+letraActual);
                 break;
             }
-    
-            
-            //i = i+1;
         }
     
     return palabraCodificada;
